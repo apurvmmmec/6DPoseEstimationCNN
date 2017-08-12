@@ -37,7 +37,7 @@ t0 = [0;0;0]
     toc1 = [rotx(180) t0;0 0 0 1]
 for x=1:640
     for y=1:480
-                                        if(seg(y,x) ==0)
+%                                         if(seg(y,x) ==0)
         numPt=numPt+1;
         d = depth(y,x);
         xc=(double(x)-325.2611)*(double(d)/(1000.0*572.4114));
@@ -54,7 +54,7 @@ for x=1:640
         colorMap(numPt,1) = color(y,x,1);
         colorMap(numPt,2) = color(y,x,2);
         colorMap(numPt,3) = color(y,x,3);
-                                        end
+%                                         end
     end 
 end
 

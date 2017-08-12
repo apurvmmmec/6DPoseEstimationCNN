@@ -1,7 +1,7 @@
 close all;
 clear all;
 objId=5;
-binDim =4;
+binDim =2;
 
 %CAmera Intrinsic Param Matrix
 camMat = [572.41140   0          325.2611;
@@ -9,9 +9,9 @@ camMat = [572.41140   0          325.2611;
     0           0          1];
 cam = cameraParameters('IntrinsicMatrix', camMat')
 
-for n=100:100
+for n=0:2
     n
-    camCordDisp=1;
+    camCordDisp=0;
     %Read Depth, Color and sgmentation mask
     base_path = '/Users/apurvnigam/study_ucl/term1/MScThesis/hinterstoisser/'
     depth=imread(sprintf('%stest/%02d/depth/%04d.png',base_path,objId,n));
@@ -50,12 +50,40 @@ for n=100:100
     %             [pc,colorMap] = reconstructScene(objId,n);
     
     %100
-    r= [ 0.89526898  0.37082601 -0.246943  ;
-        -0.113724   -0.34570301 -0.931427  ;
-        -0.43076599  0.86196202 -0.26732501];
-    t=[ -100.50654196;
-        89.42205556;
-        1038.79488726]/1000;
+%     r= [ 0.89526898  0.37082601 -0.246943  ;
+%         -0.113724   -0.34570301 -0.931427  ;
+%         -0.43076599  0.86196202 -0.26732501];
+%     t=[ -100.50654196;
+%         89.42205556;
+%         1038.79488726]/1000;
+    
+    %0
+    if(n==0)
+        r=[ 0.98378801 -0.043285   -0.174033  ;
+            -0.16262101 -0.624421   -0.76397198;
+            -0.0756016   0.77988797 -0.621337  ];
+        t=[ 0.06125955;
+            -0.09160362;
+            1.03282311];
+        
+        
+        % 1
+    elseif(n==1)
+        r=[ 0.98310202 -0.0472039  -0.17686699;
+            -0.167686   -0.61976397 -0.76666403;
+            -0.0734263   0.78336698 -0.61720699];
+        t=[ 0.0554482 ;
+            -0.08189324;
+            1.02571399];
+        % % 2
+    elseif(n==2)
+        r=[ 0.98965299 -0.0190222  -0.142216  ;
+            -0.118268   -0.66934502 -0.73347801;
+            -0.0812389   0.74270803 -0.66466898];
+        t=[ 0.05612266;
+            -0.09920049;
+            0.99658274];
+    end
     
     
     toc = [r t;0 0 0 1];
@@ -90,43 +118,43 @@ for n=100:100
     % Now we use the detected object coordinate label image
     %Iterate through image, and for the pixels inside segmentation mask,
     %note  down the bin corresponding to each pixel
-    for x=1:640
-        for y=1:480
-            ptIdx=ptIdx+1;
-            if(seg(y,x) >0)
-                d = depth(y,x);
-                if( d~=0)
-                    label =gtlabelImg(y,x);
-                    numPt=numPt+1;
-                    bins2d(numPt,1:3)=[double(x) double(y)  double(label)] ;
-                    
-                end
-            end
-        end
-    end
+%     for x=1:640
+%         for y=1:480
+%             ptIdx=ptIdx+1;
+%             if(seg(y,x) >0)
+%                 d = depth(y,x);
+%                 if( d~=0)
+%                     label =gtlabelImg(y,x);
+%                     numPt=numPt+1;
+%                     bins2d(numPt,1:3)=[double(x) double(y)  double(label)] ;
+%                     
+%                 end
+%             end
+%         end
+%     end
     
-    imshow(color);
+%     imshow(color);
     
     % Now we calculate the 2D centroids of bins in the label image.
     % We also find the 3D projections of the 2D bin centroids.
-    hold on
-    ct=1;
-    binIds2D = unique(bins2d(:,3))
-    for  b =1:size(binIds2D,1)
-        
-        id = binIds2D(b);
-        if(id ~= 0)
-            num = size (find(bins2d(:,3)==id),1);
-            bx = sum(bins2d(find(bins2d(:,3)==id),1))/num;
-            by = sum( bins2d( find(bins2d(:,3)==id),2))/num;
-            bin2DCents(id,:)=[bx,by];
-            centD = depth(round(by),round(bx));
-            
-        end
-        ct=ct+1;
-    end
-    
-    binPC1 = pointCloud(cenProj3d,'Color',colors);
+%     hold on
+%     ct=1;
+%     binIds2D = unique(bins2d(:,3))
+%     for  b =1:size(binIds2D,1)
+%         
+%         id = binIds2D(b);
+%         if(id ~= 0)
+%             num = size (find(bins2d(:,3)==id),1);
+%             bx = sum(bins2d(find(bins2d(:,3)==id),1))/num;
+%             by = sum( bins2d( find(bins2d(:,3)==id),2))/num;
+%             bin2DCents(id,:)=[bx,by];
+%             centD = depth(round(by),round(bx));
+%             
+%         end
+%         ct=ct+1;
+%     end
+%     
+%     binPC1 = pointCloud(cenProj3d,'Color',colors);
     
     %     figure
     %     pcshow(binPC1,'MarkerSize',200,'VerticalAxis','Y', 'VerticalAxisDir','Up');
@@ -144,7 +172,7 @@ for n=100:100
                     camC=[xc;yc;zc;1];
                     xo = (camC);
                     if(camCordDisp==0)
-                        xo = toc1*(inv(toc)*xo);     % Obj Coord
+                        xo = (inv(toc)*xo);     % Obj Coord
                     else
                         xo = toc1*xo;
                     end
@@ -228,22 +256,22 @@ for n=100:100
     %     % % fclose('all');
     %     % %
     %
-    orpc = pointCloud(pc,'Color',colorMap);
+%     orpc = pointCloud(pc,'Color',colorMap);
     
     
     
-    binIds3D = unique(bins3d(:,4))
-    for  b =1:size(binIds3D,1)
-        id = binIds3D(b);
-        if(id~=0)
-            num = size (find(bins3d(:,4)==id),1);
-            bx = sum(bins3d(find(bins3d(:,4)==id),1))/num;
-            by = sum( bins3d( find(bins3d(:,4)==id),2))/num;
-            bz = sum(bins3d(find(bins3d(:,4)==id),3))/num;
-            bin3DCents(id,:)=[bx,by,bz];
-        end
-    end
-    binPC = pointCloud(bin3DCents,'Color',colors);
+%     binIds3D = unique(bins3d(:,4))
+%     for  b =1:size(binIds3D,1)
+%         id = binIds3D(b);
+%         if(id~=0)
+%             num = size (find(bins3d(:,4)==id),1);
+%             bx = sum(bins3d(find(bins3d(:,4)==id),1))/num;
+%             by = sum( bins3d( find(bins3d(:,4)==id),2))/num;
+%             bz = sum(bins3d(find(bins3d(:,4)==id),3))/num;
+%             bin3DCents(id,:)=[bx,by,bz];
+%         end
+%     end
+%     binPC = pointCloud(bin3DCents,'Color',colors);
     
     %     figure
     %     pcshow(binPC,'MarkerSize',200,'VerticalAxis','Y', 'VerticalAxisDir','Up');
@@ -251,11 +279,11 @@ for n=100:100
 %     [worldOrientation,worldLocation] = estimateWorldCameraPose(...
 %         bin2DCents,bin3DCents,cam)
     
-    figure
-    pcshow(orpc,'VerticalAxis','Y', 'VerticalAxisDir','Up');
-    xlabel('X');
-    ylabel('Y');
-    zlabel('Z');
+%     figure
+%     pcshow(orpc,'VerticalAxis','Y', 'VerticalAxisDir','Up');
+%     xlabel('X');
+%     ylabel('Y');
+%     zlabel('Z');
     hold on
     %
     
@@ -271,6 +299,6 @@ for n=100:100
 %         bb3D =bb3DCamCord';
 %     end
     
-    drawBB3D(bb3D)
+%     drawBB3D(bb3D)
     
 end
