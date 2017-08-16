@@ -17,7 +17,6 @@ labelled_mpath = base_path+ 'test/{:02d}/125bins/labelled/{:04d}.png'
 
 
 seg_in_mpath = base_path+ 'test/{:02d}/seg/{:04d}.png'
-
 model_mpath = base_path + 'models/obj_{:02d}.ply'  # Already transformed
 
 scene_info_mpath = base_path + 'test/{:02d}/info.yml'

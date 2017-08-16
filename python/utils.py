@@ -1,10 +1,4 @@
-import ruamel.yaml as yaml
 import numpy as np
-import inout as io
-from PIL import Image
-import renderer
-import matplotlib.pyplot as plt
-import os
 
 
 def getRotTrans(gt_info,im_id,objId):
