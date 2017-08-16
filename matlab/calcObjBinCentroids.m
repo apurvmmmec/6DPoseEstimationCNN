@@ -2,14 +2,19 @@ function calcObjBinCentroids()
 close all
 clear all
 objId=5
-binDim=2
+binDim=5
 base_path = '/Users/apurvnigam/study_ucl/term1/MScThesis/hinterstoisser/'
 ptCloud = pcread(sprintf('%smodels/obj_05.ply',base_path));
 obj = ptCloud.Location;
-obj=obj*rotz(180)*rotx(180)/1000;
+% obj=obj*rotz(180)*rotx(180)/1000;
+obj=obj;
+
 pc = zeros(307200,3);
 colorMap = zeros(307200,3);
-maxExtent= [0.100792;0.181796 ;0.193734 ];
+maxExtent= [0.100792;0.181796 ;0.193734 ]*1000;
+
+%For Ape
+% maxExtent=[0.0758686;0.0775993;0.0917691; ]*1000
 num3DPts= size(obj,1)
 colors= distinguishable_colors(power(binDim,3),[0,0,0]);
 labels = generateLabels(binDim);
@@ -92,7 +97,6 @@ binIds3D = unique(bins3d(:,4))
             bz = sum(bins3d(find(bins3d(:,4)==id),3))/num;
 %             if((id ==103)|(id ==123)|(id ==81)|(id ==12))
             bin3DCents(id,:)=[bx,by,bz, id];
-            disp(sprintf('%f,%f,%f,',bx,by,bz))
 %             end
         end
     end
@@ -101,4 +105,7 @@ binIds3D = unique(bins3d(:,4))
     
     pcshow(binPC,'MarkerSize',800,'VerticalAxis','Y', 'VerticalAxisDir','Up');
 
+    for i=1:125
+        disp(sprintf('%f,  %f,  %f,',bin3DCents(i,1),bin3DCents(i,2),bin3DCents(i,3)))
+    end
 end

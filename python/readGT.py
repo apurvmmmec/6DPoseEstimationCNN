@@ -45,9 +45,9 @@ def getRotTrans(im_id,objId):
 
 w, h = 640, 480
 
-scene_id =5; #
+scene_id =1; #
 # objId = 5 #Can
-objId = 5#Duck
+objId = 1#Duck
 
 
 
@@ -72,7 +72,7 @@ K[1, 2] = 242.04899
 K[2, 2] = 1
 model = io.load_ply(model_mpath.format(objId))
 
-for im_id in range(100,101):
+for im_id in range(0,1236):
     print rgb_in_mpath.format(objId,im_id)
     maskData = np.zeros((h, w), dtype=np.uint8)
 
@@ -80,8 +80,8 @@ for im_id in range(100,101):
     [r,t]= getRotTrans(im_id,objId)
     print r
     print t
-    r=r.dot(rotY180)
-    r=r.dot(rotZ180)
+    # r=r.dot(rotY180)
+    # r=r.dot(rotZ180)
 
 
 
@@ -114,7 +114,7 @@ for im_id in range(100,101):
     # img.show()
     # im.save('fig1_modified.png')
     # img = Image.fromarray(m_rgb)
-    # img = img.convert('1')
+    img = img.convert('1')
     # img.show();
-    # img.save(seg_path.format(objId,im_id))
+    img.save(seg_path.format(objId,im_id))
     img.close()

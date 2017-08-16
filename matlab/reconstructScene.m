@@ -3,50 +3,29 @@ function [pc, colorMap] = reconstructScene(objId,imId)
 base_path = '/Users/apurvnigam/study_ucl/term1/MScThesis/hinterstoisser/';
 depth=imread(sprintf('%stest/%02d/depth/%04d.png',base_path,objId,imId));
 color=im2double(imread(sprintf('%stest/%02d/rgb/%04d.png',base_path,objId,imId)));
-seg=imread(sprintf('%stest/%02d/seg/%04d.png',base_path,objId,imId));
+% seg=imread(sprintf('%stest/%02d/seg/%04d.png',base_path,objId,imId));
 
-% toc=getTransf(imId);
-% r=[ 0.20165101 -0.97653198  0.0756456 ;
-%     -0.93756402 -0.21479499 -0.273563  ;
-%     0.283391   -0.0157584  -0.958875  ];
-% t=[-0.00556719;
-%     -0.05020958;
-%     0.67473655];
-
-% r=[ 0.98310202 -0.0472039  -0.17686699;
-%  -0.167686   -0.61976397 -0.76666403;
-%  -0.0734263   0.78336698 -0.61720699]
-% r=r*rotz(90);
-% t=[   55.44819932;
-%    -81.89323636;
-%   1025.71399065]/1000;
-% 
-r= [ 0.89526898  0.37082601 -0.246943  ;
- -0.113724   -0.34570301 -0.931427  ;
- -0.43076599  0.86196202 -0.26732501];
-t=[ -100.50654196;
-    89.42205556;
-  1038.79488726]/1000;
-
-toc = [r t;0 0 0 1];
 
 numPt=0;
 pc = zeros(307200,3);
 colorMap = zeros(307200,3);
 t0 = [0;0;0]
-    toc1 = [rotx(180) t0;0 0 0 1]
+toc1 = [rotx(180) t0;0 0 0 1]
 for x=1:640
     for y=1:480
 %                                         if(seg(y,x) ==0)
-        numPt=numPt+1;
+        
+x= 574
+y=128
+numPt=numPt+1;
         d = depth(y,x);
         xc=(double(x)-325.2611)*(double(d)/(1000.0*572.4114));
-        yc=(y-242.04899)*(double(d)/(1000*573.57043));
-        zc=double(d)/1000;
+        yc=-(y-242.04899)*(double(d)/(1000*573.57043));
+        zc=-double(d)/1000;
         
         camC=[xc;yc;zc;1];
         
-        xo = toc1*(camC);
+        xo = (camC);
         
         pc(numPt,1) = xo(1,1);
         pc(numPt,2) = xo(2,1);
@@ -58,7 +37,11 @@ for x=1:640
     end 
 end
 
-end
+
+
+
+
+
 
 
 
