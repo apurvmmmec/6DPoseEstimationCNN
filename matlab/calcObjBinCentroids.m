@@ -1,17 +1,19 @@
 function calcObjBinCentroids()
 close all
 clear all
-objId=5
+objId=9
 binDim=5
 base_path = '/Users/apurvnigam/study_ucl/term1/MScThesis/hinterstoisser/'
-ptCloud = pcread(sprintf('%smodels/obj_05.ply',base_path));
+ptCloud = pcread(sprintf('%smodels/obj_09.ply',base_path));
 obj = ptCloud.Location;
 % obj=obj*rotz(180)*rotx(180)/1000;
 obj=obj;
 
 pc = zeros(307200,3);
 colorMap = zeros(307200,3);
-maxExtent= [0.100792;0.181796 ;0.193734 ]*1000;
+% maxExtent= [0.100792;0.181796 ;0.193734 ]*1000;
+
+maxExtent=[0.104429;0.0774076;0.0856969]*1000
 
 %For Ape
 % maxExtent=[0.0758686;0.0775993;0.0917691; ]*1000
@@ -49,14 +51,20 @@ for i=1:num3DPts
     lx=  ceil( (obX-minX)/unitX);
     if(lx==0)
         lx=1;
+    elseif(lx >binDim)
+        lx=binDim
     end;
     ly=  ceil( (obY-minY)/unitY);
     if(ly==0)
         ly=1;
+    elseif(ly >binDim)
+        ly=binDim
     end;
     lz=  ceil( (obZ-minZ)/unitZ);
     if(lz==0)
         lz=1;
+    elseif(lz >binDim)
+        lz=binDim
     end;
     
     strLabel = sprintf('%d%d%d',lx,ly,lz);

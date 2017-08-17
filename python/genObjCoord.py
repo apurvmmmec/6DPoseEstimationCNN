@@ -57,18 +57,18 @@ colorPalette = getColors(bin_dim=bin_dim);
 labels = getLabels(bin_dim);
 # print labels
 
-scene_id = 1;  # benchviseblue
+scene_id = 9;  # benchviseblue
 # objId = 5 #Can
-objId = 1  # Cat
+objId = 9  # Cat
 
 with open(scene_gt_mpath.format(scene_id), 'r') as f:
     gts = yaml.load(f, Loader=yaml.CLoader)
 
 
 # maxExtent = np.array([0.100792,0.181796,0.193734]).reshape([3, 1]); #Can
-# maxExtent = np.array([0.0774076 ,0.0856969 ,0.104429]).reshape([3, 1]); #Duck
+maxExtent = np.array([0.104429, 0.0774076 ,0.0856969]).reshape([3, 1]); #Duck
 # maxExtent = np.array([0.11848210000,0.14113240000,0.25822600000]).reshape([3,1]) #Iron
-maxExtent=np.array([0.0758686,0.0775993,0.0917691 ]).reshape([3,1])
+# maxExtent=np.array([0.0758686,0.0775993,0.0917691 ]).reshape([3,1])
 
 
 bb3D = getBB3D(maxExtent)
@@ -86,7 +86,7 @@ unitX = (maxX - minX) / bin_dim;
 unitY = (maxY - minY) / bin_dim;
 unitZ = (maxZ - minZ) / bin_dim;
 
-for im_id in range(72,1236):
+for im_id in range(0,1):
     print im_id
     objLabel = np.zeros([h, w, 3],dtype=np.uint8)
     labelImg = np.zeros([h,w],dtype=np.uint8)
@@ -146,13 +146,13 @@ for im_id in range(72,1236):
 
     imgColorCoord = Image.fromarray(objLabel,'RGB');
 
-    # imgColorCoord.save(labelled_color_mpath.format(objId,im_id));
+    imgColorCoord.save(labelled_color_mpath.format(objId,im_id));
 
     imgLabel = Image.fromarray(labelImg);
     # imgLabel.show()
     #
-    # imgLabel.save(labelled_mpath.format(objId,im_id));
+    imgLabel.save(labelled_mpath.format(objId,im_id));
 
-    # imgColorCoord.show();
+    imgColorCoord.show();
 
     # print model_mpath.format(objId)
