@@ -298,8 +298,8 @@ def get_conv_filter( name):
     init = tf.constant_initializer(value=data_dict[name][0],
                                    dtype=tf.float32)
     shape = data_dict[name][0].shape
-    print('Layer name: %s' % name)
-    print('Layer shape: %s' % str(shape))
+    # print('Layer name: %s' % name)
+    # print('Layer shape: %s' % str(shape))
     var = tf.get_variable(name="filter", initializer=init, shape=shape)
     if not tf.get_variable_scope().reuse:
         weight_decay = tf.multiply(tf.nn.l2_loss(var), wd,
@@ -434,8 +434,8 @@ def _bias_variable( shape, constant=0.0):
     return var
 
 def get_fc_weight_reshape( name, shape, num_classes=None):
-    print('Layer name: %s' % name)
-    print('Layer shape: %s' % shape)
+    # print('Layer name: %s' % name)
+    # print('Layer shape: %s' % shape)
     weights = data_dict[name][0]
     weights = weights.reshape(shape)
     if num_classes is not None:

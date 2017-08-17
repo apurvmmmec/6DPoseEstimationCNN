@@ -183,7 +183,7 @@ def get_valid_logits_and_labels(annotation_batch_tensor,
 def separateTrainTestValidation():
     import numpy as np
 
-    base_path = './'
+    base_path = '../../fcn8_vgg_data/'
 
     numTotal = 1196
     allScenes = []
@@ -238,4 +238,24 @@ def separateTrainTestValidation():
     #     #     os.system("cp ./seg/%04d.png ./images/can/annotations/test/" % (i))
 
 
-# separateTrainTestValidation()
+def copyTestImages():
+    import numpy as np
+
+    base_path = '../../fcn8_vgg_data/'
+    allScenes = []
+    with open('./testScenes.txt', 'r') as f:
+        allScenes.append(f.readlines())
+
+    print allScenes
+    numTotal = len(allScenes[0])
+    print numTotal
+    outfile = open('../../fcn8_vgg_data/data/test.txt', 'w')
+    print('../../fcn8_vgg_data/data/test.txt')
+    for i in range(0,numTotal):
+        i = int(allScenes[0][i])
+        # os.system('cp '+ base_path+ 'can_AllImages/rgb/%04d.png'%(i)+ ' '+base_path+'images/can/images/test/')
+        print(base_path+'images/can/images/test/%04d.png\n'%(i))
+        outfile.write(base_path+'images/can/images/test/%04d.png\n'%(i))
+
+
+copyTestImages()

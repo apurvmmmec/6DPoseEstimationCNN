@@ -115,8 +115,9 @@ class ImageDataGenerator(object):
         labelclasses = np.append(labelclasses, [255])
         return labelclasses
 
-    def saveImage(self,outputImages, filenames):
-        imageName = 'segout1104.png'
+    def saveImage(self,outDir,outputImages, filenames):
+        numImages = len(filenames)
+
         def map_channels(i_x):
             i, x = i_x
             x = (x * 255).astype(np.uint8)
@@ -133,8 +134,10 @@ class ImageDataGenerator(object):
             for i, x in enumerate(channels):
                 base[x > 0] = i
             return base
-        # np.ndarray.reshape(outputImages,[1,480,640,2])
-        imgchannels = list(map(map_channels, enumerate(np.transpose(outputImages[0, :, :, :], [2, 0, 1]))))
-        smashed = smash_channels(imgchannels)
-        print filenames[0]
-        io.imsave(filenames[0]+'_seg.png', smashed*255)
+        for i in range (0,numImages):
+
+            imgchannels = list(map(map_channels, enumerate(np.transpose(outputImages[i, :, :, :], [2, 0, 1]))))
+            smashed = smash_channels(imgchannels)
+
+            print (outDir+'segout'+filenames[i][-8:])
+            io.imsave(outDir+'segout'+filenames[i][-8:], smashed*255)

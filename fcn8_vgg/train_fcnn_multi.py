@@ -24,16 +24,16 @@ DATA_DIR = base_path+'/images/'
 IMG_OUT_DIR = base_path+'/outputImages/'
 IMG_IN_DIR = base_path+'/data/'
 LOG_DIR = base_path+'/logs/'
-MODEL = base_path+'/model/'
+MODEL = base_path+'/model_canSeg/'
 MODEL_NAME = 'fcn8_vgg'
 DATASET = 'duck'
 PRETRAIN_MODEL = base_path+'/pretrained/vgg16.npy'
 FLAGS = tf.app.flags.FLAGS
 
-tf.app.flags.DEFINE_string('logDir', base_path+'./logs',
+tf.app.flags.DEFINE_string('logDir', base_path+'/logs',
                            """Directory where to write event logs """
                            """and checkpoint.""")
-tf.app.flags.DEFINE_string('checkpointPath', base_path+'./model',
+tf.app.flags.DEFINE_string('checkpointPath', base_path+'/model_can',
                            """Directory where to write event logs """
                            """and checkpoint.""")
 tf.app.flags.DEFINE_integer('max_steps', 1000000,
@@ -342,13 +342,10 @@ def testModel(args):
 
     print("Testing saved model")
 
-    os.system("rm -rf " + args.imagesOutDir)
-    os.system("mkdir " + args.imagesOutDir)
-
     testDataGen = ImageDataGenerator(args, test_file_name,
                                       args.numClasses,
                                       'test',
-                                      1,
+                                      4,
                                       num_preprocess_threads=1,
                                       shuffle=True,
                                       min_queue_examples=1)
@@ -379,20 +376,20 @@ def testModel(args):
 
     epsilon = tf.constant(value=1e-4)
 
+    for i in range(1,20):
+        upscore32_pred = fcn8.inference(rgb=rgbImgBatch)
+        inputShape = rgbImgBatch.get_shape().as_list()
+        inputShape[0] = -1  # self.batchSize # Images in batch
+        inputShape[3] = args.numClasses
+        logits = tf.reshape(upscore32_pred, (-1, args.numClasses))
+        softmax = tf.nn.softmax(logits + epsilon)
+        probabilities = tf.reshape(softmax, inputShape, name='probabilities')
 
-    upscore32_pred = fcn8.inference(rgb=rgbImgBatch)
-    inputShape = rgbImgBatch.get_shape().as_list()
-    inputShape[0] = -1  # self.batchSize # Images in batch
-    inputShape[3] = args.numClasses
-    logits = tf.reshape(upscore32_pred, (-1, args.numClasses))
-    softmax = tf.nn.softmax(logits + epsilon)
-    probabilities = tf.reshape(softmax, inputShape, name='probabilities')
+        probabilities,labels = sess.run([probabilities,labelBatch])
+        # labels = sess.run(labelBatch)
+        testDataGen.saveImage(args.imagesOutDir,probabilities,labels );
 
-    probabilities,labels = sess.run([probabilities,labelBatch])
-    # labels = sess.run(labelBatch)
-    testDataGen.saveImage(probabilities,labels );
-
-    print('done calculating prb')
+        print('done calculating prb')
 
     print("Model tested!")
     summary_writer = tf.summary.FileWriter(FLAGS.logDir, sess.graph)
@@ -407,8 +404,8 @@ def main(argv=None):  # pylint: disable=unused-argument
 
   args = parseArguments()
   il = InputLoader(args)
-  # testModel(args)
-  train(args)
+  testModel(args)
+  # train(args)
 
 
 if __name__ == '__main__':
