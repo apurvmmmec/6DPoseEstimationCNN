@@ -1,0 +1,1271 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		8A80D06A6B23499AB5E5E513 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2448E6C35DB34FE2901FFEF6 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				4F3E0F3C3FD34E6C8E57ABC6 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		CD18E83247114D408D83A83F /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D9E9784726B54204B44686A7 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				A85BF364D85547B8AD1B0142 /* CMake Rules */,
+			);
+			dependencies = (
+				E080FDB749F44A1E88699A4D /* PBXTargetDependency */,
+				C2366DE042564EA7BF6D4EC4 /* PBXTargetDependency */,
+				6BFB873D518B4AF2956E4B11 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		05828DFC7A5C47398399904B /* properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08AE2D1CCA6B40CFBFD1B818 /* properties.cpp */; };
+		08AB718DB628438588710D2D /* training_samples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72CF7EE5FBCA4BF2A8363F71 /* training_samples.cpp */; };
+		187A17C42D1F48F4BD3D9258 /* test_pose_estimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 623B21AFA86946F6AAD204D4 /* test_pose_estimation.cpp */; };
+		22277B0AE3F1478DAC5816A1 /* train_trees.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 645418937A584256A1A54406 /* train_trees.cpp */; };
+		2624B7BFD7AC40D285128F53 /* properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0EBCB9FEE644DA0A09E04C6 /* properties.cpp */; };
+		31820FFC102D4DEBB2C8C804 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7EBA7BCE7284945A0CC486D /* util.cpp */; };
+		3C61FACEC93A4421BA175F03 /* thread_rand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BD78B554A944F79BAC4E7C6 /* thread_rand.cpp */; };
+		48993DBC431C43D6B25551FB /* features.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93663E0157AE404392EB5AC9 /* features.cpp */; };
+		4C1897F84AD74C659E7D3D83 /* features.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51F58A39E8B045568241DE31 /* features.cpp */; };
+		7DC9E44C1FE14BB79ECA8829 /* read_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15E095E0376A4388964BF11B /* read_data.cpp */; };
+		80B1C784EB7A43B181FB3918 /* dataset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C2274E32844722B6F897E8 /* dataset.cpp */; };
+		8F2EF75DEC8E4EE4AE362077 /* dataset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A03BFB5DCF04724848996C0 /* dataset.cpp */; };
+		AEFCA3A49DF549E8A7BC9053 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D38D432162464502B6A63B2E /* util.cpp */; };
+		B0E9F6A58A9743E5BD44B369 /* ms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEDF46FEF94448B2BD5F4F /* ms.cpp */; };
+		B68BBF1BDA75492C939ECEEE /* Hypothesis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5CD1DEA7E7C49B8A28795E5 /* Hypothesis.cpp */; };
+		C1A4CB401F39018E0011DE77 /* debugQuickLookObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1A4CB3E1F39018E0011DE77 /* debugQuickLookObject.cpp */; };
+		C1C34C2E1F41EF0600268F84 /* binCentroids.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1C34C2D1F41EF0600268F84 /* binCentroids.cpp */; };
+		C483904DB0954A3B9C534D59 /* training_samples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32C6662C86EF413190123AE7 /* training_samples.cpp */; };
+		CB459A756B7141E7A1A1A883 /* msSys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BDE28EDAD1E4AE89BEC7D0B /* msSys.cpp */; };
+		DE05230792C642419684A599 /* regression_tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5B5EECBF6479C8DDC72F2 /* regression_tree.cpp */; };
+		DE826CF3526841A9B9F3725D /* thread_rand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 135A1567C5D94A55B56ACA59 /* thread_rand.cpp */; };
+		E3E3B3DF64A5469D981442F4 /* read_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F460648D0314A1CB34979A4 /* read_data.cpp */; };
+		E8DF5108A58A4572B90680F4 /* write_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 338AB3D6158D43349C06BCB1 /* write_data.cpp */; };
+		F09501EF4DFF4C5794CEB739 /* regression_tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28F5FA96F1384C75A256C598 /* regression_tree.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		06B7E0B8DC5C4557B4D0A299 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC8F153543CF400AB3E70A94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A80D06A6B23499AB5E5E513;
+			remoteInfo = ZERO_CHECK;
+		};
+		696F941E38514A288FDCF91B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC8F153543CF400AB3E70A94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A80D06A6B23499AB5E5E513;
+			remoteInfo = ZERO_CHECK;
+		};
+		A9D61A43CC86431EA6E5AC97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC8F153543CF400AB3E70A94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE7684FD7EA249D38C53884A;
+			remoteInfo = train_trees;
+		};
+		B547B18897AF4BF49B9C891C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC8F153543CF400AB3E70A94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A80D06A6B23499AB5E5E513;
+			remoteInfo = ZERO_CHECK;
+		};
+		F340E1C744974C0896B6BC55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC8F153543CF400AB3E70A94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F72D82BE9AF14470B6AFF766;
+			remoteInfo = test_pose_estimation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08AE2D1CCA6B40CFBFD1B818 /* properties.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = properties.cpp; sourceTree = SOURCE_ROOT; };
+		0A03BFB5DCF04724848996C0 /* dataset.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = dataset.cpp; sourceTree = SOURCE_ROOT; };
+		10A804185EF7426799EA77EE /* test_pose_estimation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = test_pose_estimation; sourceTree = BUILT_PRODUCTS_DIR; };
+		135A1567C5D94A55B56ACA59 /* thread_rand.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = thread_rand.cpp; sourceTree = SOURCE_ROOT; };
+		15E095E0376A4388964BF11B /* read_data.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = read_data.cpp; sourceTree = SOURCE_ROOT; };
+		1BD78B554A944F79BAC4E7C6 /* thread_rand.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = thread_rand.cpp; sourceTree = SOURCE_ROOT; };
+		1F460648D0314A1CB34979A4 /* read_data.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = read_data.cpp; sourceTree = SOURCE_ROOT; };
+		28F5FA96F1384C75A256C598 /* regression_tree.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = regression_tree.cpp; sourceTree = SOURCE_ROOT; };
+		2CEEDF46FEF94448B2BD5F4F /* ms.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ms.cpp; path = ../edison_source/segm/ms.cpp; sourceTree = SOURCE_ROOT; };
+		32C6662C86EF413190123AE7 /* training_samples.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = training_samples.cpp; sourceTree = SOURCE_ROOT; };
+		338AB3D6158D43349C06BCB1 /* write_data.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = write_data.cpp; sourceTree = SOURCE_ROOT; };
+		4932960B28BA43B19F977E98 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		50479D3799BE4623970DCECB /* train_trees */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = train_trees; sourceTree = BUILT_PRODUCTS_DIR; };
+		51F58A39E8B045568241DE31 /* features.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = features.cpp; sourceTree = SOURCE_ROOT; };
+		5ED5B5EECBF6479C8DDC72F2 /* regression_tree.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = regression_tree.cpp; sourceTree = SOURCE_ROOT; };
+		623B21AFA86946F6AAD204D4 /* test_pose_estimation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = test_pose_estimation.cpp; sourceTree = SOURCE_ROOT; };
+		645418937A584256A1A54406 /* train_trees.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = train_trees.cpp; sourceTree = SOURCE_ROOT; };
+		72CF7EE5FBCA4BF2A8363F71 /* training_samples.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = training_samples.cpp; sourceTree = SOURCE_ROOT; };
+		7380CD8DD14943B5B4E61C2C /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		84C2274E32844722B6F897E8 /* dataset.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = dataset.cpp; sourceTree = SOURCE_ROOT; };
+		93663E0157AE404392EB5AC9 /* features.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = features.cpp; sourceTree = SOURCE_ROOT; };
+		9BDE28EDAD1E4AE89BEC7D0B /* msSys.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = msSys.cpp; path = ../edison_source/segm/msSys.cpp; sourceTree = SOURCE_ROOT; };
+		C172693C1F0370470048AF5B /* auto_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = auto_context.h; sourceTree = "<group>"; };
+		C172693D1F0370470048AF5B /* combined_feature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = combined_feature.h; sourceTree = "<group>"; };
+		C172693E1F0370470048AF5B /* dataset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataset.h; sourceTree = "<group>"; };
+		C172693F1F0370470048AF5B /* detection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detection.h; sourceTree = "<group>"; };
+		C17269401F0370470048AF5B /* feature_abscell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = feature_abscell.h; sourceTree = "<group>"; };
+		C17269411F0370470048AF5B /* feature_abscoord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = feature_abscoord.h; sourceTree = "<group>"; };
+		C17269421F0370470048AF5B /* feature_dabgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = feature_dabgr.h; sourceTree = "<group>"; };
+		C17269431F0370470048AF5B /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
+		C17269441F0370470048AF5B /* generic_io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generic_io.h; sourceTree = "<group>"; };
+		C17269451F0370470048AF5B /* Hypothesis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hypothesis.h; sourceTree = "<group>"; };
+		C17269461F0370470048AF5B /* image_cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = image_cache.h; sourceTree = "<group>"; };
+		C17269471F0370470048AF5B /* multi_dataset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multi_dataset.h; sourceTree = "<group>"; };
+		C17269481F0370470048AF5B /* pointCloudTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pointCloudTools.h; sourceTree = "<group>"; };
+		C17269491F0370470048AF5B /* pose_evaluation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pose_evaluation.h; sourceTree = "<group>"; };
+		C172694A1F0370470048AF5B /* properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = properties.h; sourceTree = "<group>"; };
+		C172694B1F0370470048AF5B /* ransac2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ransac2D.h; sourceTree = "<group>"; };
+		C172694C1F0370470048AF5B /* ransac3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ransac3D.h; sourceTree = "<group>"; };
+		C172694D1F0370470048AF5B /* read_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = read_data.h; sourceTree = "<group>"; };
+		C172694E1F0370470048AF5B /* regression_classifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regression_classifier.h; sourceTree = "<group>"; };
+		C172694F1F0370470048AF5B /* regression_evaluation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regression_evaluation.h; sourceTree = "<group>"; };
+		C17269501F0370470048AF5B /* regression_tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regression_tree.h; sourceTree = "<group>"; };
+		C17269511F0370470048AF5B /* sampler2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sampler2D.h; sourceTree = "<group>"; };
+		C17269521F0370470048AF5B /* stop_watch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stop_watch.h; sourceTree = "<group>"; };
+		C17269531F0370470048AF5B /* thread_rand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thread_rand.h; sourceTree = "<group>"; };
+		C17269541F0370470048AF5B /* training_samples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = training_samples.h; sourceTree = "<group>"; };
+		C17269551F0370470048AF5B /* tree_structure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tree_structure.h; sourceTree = "<group>"; };
+		C17269561F0370470048AF5B /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		C17269571F0370470048AF5B /* util_display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util_display.h; sourceTree = "<group>"; };
+		C17269581F0370470048AF5B /* util_features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util_features.h; sourceTree = "<group>"; };
+		C17269591F0370470048AF5B /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		C172695A1F0370470048AF5B /* write_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = write_data.h; sourceTree = "<group>"; };
+		C1A4CB3E1F39018E0011DE77 /* debugQuickLookObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = debugQuickLookObject.cpp; sourceTree = "<group>"; };
+		C1A4CB3F1F39018E0011DE77 /* debugQuickLookObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = debugQuickLookObject.hpp; sourceTree = "<group>"; };
+		C1C34C2C1F41ED3500268F84 /* binCentroids.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = binCentroids.h; sourceTree = "<group>"; };
+		C1C34C2D1F41EF0600268F84 /* binCentroids.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = binCentroids.cpp; sourceTree = "<group>"; };
+		C5CD1DEA7E7C49B8A28795E5 /* Hypothesis.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = Hypothesis.cpp; sourceTree = SOURCE_ROOT; };
+		CC6E6D0B94174129A81A3966 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		D0EBCB9FEE644DA0A09E04C6 /* properties.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = properties.cpp; sourceTree = SOURCE_ROOT; };
+		D38D432162464502B6A63B2E /* util.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = util.cpp; sourceTree = SOURCE_ROOT; };
+		E1BF83596C8D4CBC8C7417CC /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		F7EBA7BCE7284945A0CC486D /* util.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = util.cpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2FC88E6BBBDC470E9F7ADA43 /* test_pose_estimation */ = {
+			isa = PBXGroup;
+			children = (
+				B2B1BE0AD83E4FD5BC47AE16 /* Source Files */,
+				4932960B28BA43B19F977E98 /* CMakeLists.txt */,
+			);
+			name = test_pose_estimation;
+			sourceTree = "<group>";
+		};
+		4FFD9653925A4DC7A648A8BA /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		744C9760C8FB4FAE821EFAEC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C172693B1F0370230048AF5B /* headers */,
+				2FC88E6BBBDC470E9F7ADA43 /* test_pose_estimation */,
+				A0FE34A433224E3AAF190C30 /* train_trees */,
+				FAC7D9162B2F461480B107CD /* ALL_BUILD */,
+				A0D204924DE64AE3B998EA6E /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		8ADB66B862584EE3ADDA46EF /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				84C2274E32844722B6F897E8 /* dataset.cpp */,
+				51F58A39E8B045568241DE31 /* features.cpp */,
+				08AE2D1CCA6B40CFBFD1B818 /* properties.cpp */,
+				1F460648D0314A1CB34979A4 /* read_data.cpp */,
+				5ED5B5EECBF6479C8DDC72F2 /* regression_tree.cpp */,
+				135A1567C5D94A55B56ACA59 /* thread_rand.cpp */,
+				645418937A584256A1A54406 /* train_trees.cpp */,
+				32C6662C86EF413190123AE7 /* training_samples.cpp */,
+				F7EBA7BCE7284945A0CC486D /* util.cpp */,
+				2CEEDF46FEF94448B2BD5F4F /* ms.cpp */,
+				9BDE28EDAD1E4AE89BEC7D0B /* msSys.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		940503A9263641BDBA73A275 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		A0D204924DE64AE3B998EA6E /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				4FFD9653925A4DC7A648A8BA /* CMake Rules */,
+				7380CD8DD14943B5B4E61C2C /* CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		A0FE34A433224E3AAF190C30 /* train_trees */ = {
+			isa = PBXGroup;
+			children = (
+				8ADB66B862584EE3ADDA46EF /* Source Files */,
+				E1BF83596C8D4CBC8C7417CC /* CMakeLists.txt */,
+			);
+			name = train_trees;
+			sourceTree = "<group>";
+		};
+		B2B1BE0AD83E4FD5BC47AE16 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				C5CD1DEA7E7C49B8A28795E5 /* Hypothesis.cpp */,
+				0A03BFB5DCF04724848996C0 /* dataset.cpp */,
+				93663E0157AE404392EB5AC9 /* features.cpp */,
+				D0EBCB9FEE644DA0A09E04C6 /* properties.cpp */,
+				15E095E0376A4388964BF11B /* read_data.cpp */,
+				28F5FA96F1384C75A256C598 /* regression_tree.cpp */,
+				623B21AFA86946F6AAD204D4 /* test_pose_estimation.cpp */,
+				1BD78B554A944F79BAC4E7C6 /* thread_rand.cpp */,
+				72CF7EE5FBCA4BF2A8363F71 /* training_samples.cpp */,
+				D38D432162464502B6A63B2E /* util.cpp */,
+				338AB3D6158D43349C06BCB1 /* write_data.cpp */,
+				C1A4CB3E1F39018E0011DE77 /* debugQuickLookObject.cpp */,
+				C1A4CB3F1F39018E0011DE77 /* debugQuickLookObject.hpp */,
+				C1C34C2D1F41EF0600268F84 /* binCentroids.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		C172693B1F0370230048AF5B /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				C172693C1F0370470048AF5B /* auto_context.h */,
+				C172693D1F0370470048AF5B /* combined_feature.h */,
+				C172693E1F0370470048AF5B /* dataset.h */,
+				C172693F1F0370470048AF5B /* detection.h */,
+				C17269401F0370470048AF5B /* feature_abscell.h */,
+				C17269411F0370470048AF5B /* feature_abscoord.h */,
+				C17269421F0370470048AF5B /* feature_dabgr.h */,
+				C17269431F0370470048AF5B /* features.h */,
+				C17269441F0370470048AF5B /* generic_io.h */,
+				C17269451F0370470048AF5B /* Hypothesis.h */,
+				C17269461F0370470048AF5B /* image_cache.h */,
+				C17269471F0370470048AF5B /* multi_dataset.h */,
+				C17269481F0370470048AF5B /* pointCloudTools.h */,
+				C17269491F0370470048AF5B /* pose_evaluation.h */,
+				C172694A1F0370470048AF5B /* properties.h */,
+				C172694B1F0370470048AF5B /* ransac2D.h */,
+				C172694C1F0370470048AF5B /* ransac3D.h */,
+				C172694D1F0370470048AF5B /* read_data.h */,
+				C172694E1F0370470048AF5B /* regression_classifier.h */,
+				C172694F1F0370470048AF5B /* regression_evaluation.h */,
+				C17269501F0370470048AF5B /* regression_tree.h */,
+				C17269511F0370470048AF5B /* sampler2D.h */,
+				C17269521F0370470048AF5B /* stop_watch.h */,
+				C17269531F0370470048AF5B /* thread_rand.h */,
+				C17269541F0370470048AF5B /* training_samples.h */,
+				C17269551F0370470048AF5B /* tree_structure.h */,
+				C17269561F0370470048AF5B /* types.h */,
+				C17269571F0370470048AF5B /* util_display.h */,
+				C17269581F0370470048AF5B /* util_features.h */,
+				C17269591F0370470048AF5B /* util.h */,
+				C172695A1F0370470048AF5B /* write_data.h */,
+				C1C34C2C1F41ED3500268F84 /* binCentroids.h */,
+			);
+			name = headers;
+			sourceTree = "<group>";
+		};
+		CB2C305F5C1E4DADAFB3DCCE = {
+			isa = PBXGroup;
+			children = (
+				744C9760C8FB4FAE821EFAEC /* Sources */,
+				E0A5B09BAC084920BA7C42CF /* Resources */,
+				E0837609B3A74E88971985EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E0837609B3A74E88971985EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10A804185EF7426799EA77EE /* test_pose_estimation */,
+				50479D3799BE4623970DCECB /* train_trees */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0A5B09BAC084920BA7C42CF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FAC7D9162B2F461480B107CD /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				940503A9263641BDBA73A275 /* CMake Rules */,
+				CC6E6D0B94174129A81A3966 /* CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE7684FD7EA249D38C53884A /* train_trees */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8561A8BF8365437CA7DE66BD /* Build configuration list for PBXNativeTarget "train_trees" */;
+			buildPhases = (
+				6CE8814DBBBF4F0C84B5AB5E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E98C72F3ABE4DEBAE415873 /* PBXTargetDependency */,
+			);
+			name = train_trees;
+			productName = train_trees;
+			productReference = 50479D3799BE4623970DCECB /* train_trees */;
+			productType = "com.apple.product-type.tool";
+		};
+		F72D82BE9AF14470B6AFF766 /* test_pose_estimation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9ADF48DA87F743BB8BD5B47D /* Build configuration list for PBXNativeTarget "test_pose_estimation" */;
+			buildPhases = (
+				0E6C2D63F5DC49DCA3DBED2F /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C465A9172624111B0127210 /* PBXTargetDependency */,
+			);
+			name = test_pose_estimation;
+			productName = test_pose_estimation;
+			productReference = 10A804185EF7426799EA77EE /* test_pose_estimation */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC8F153543CF400AB3E70A94 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0830;
+			};
+			buildConfigurationList = F6399E3C715D49C7B06AC2F2 /* Build configuration list for PBXProject "jointpose" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CB2C305F5C1E4DADAFB3DCCE;
+			projectDirPath = ../;
+			projectRoot = "";
+			targets = (
+				CD18E83247114D408D83A83F /* ALL_BUILD */,
+				8A80D06A6B23499AB5E5E513 /* ZERO_CHECK */,
+				F72D82BE9AF14470B6AFF766 /* test_pose_estimation */,
+				AE7684FD7EA249D38C53884A /* train_trees */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F3E0F3C3FD34E6C8E57ABC6 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build -f /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		A85BF364D85547B8AD1B0142 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build -f /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0E6C2D63F5DC49DCA3DBED2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B68BBF1BDA75492C939ECEEE /* Hypothesis.cpp in Sources */,
+				C1A4CB401F39018E0011DE77 /* debugQuickLookObject.cpp in Sources */,
+				8F2EF75DEC8E4EE4AE362077 /* dataset.cpp in Sources */,
+				48993DBC431C43D6B25551FB /* features.cpp in Sources */,
+				2624B7BFD7AC40D285128F53 /* properties.cpp in Sources */,
+				7DC9E44C1FE14BB79ECA8829 /* read_data.cpp in Sources */,
+				F09501EF4DFF4C5794CEB739 /* regression_tree.cpp in Sources */,
+				C1C34C2E1F41EF0600268F84 /* binCentroids.cpp in Sources */,
+				187A17C42D1F48F4BD3D9258 /* test_pose_estimation.cpp in Sources */,
+				3C61FACEC93A4421BA175F03 /* thread_rand.cpp in Sources */,
+				08AB718DB628438588710D2D /* training_samples.cpp in Sources */,
+				AEFCA3A49DF549E8A7BC9053 /* util.cpp in Sources */,
+				E8DF5108A58A4572B90680F4 /* write_data.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CE8814DBBBF4F0C84B5AB5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B1C784EB7A43B181FB3918 /* dataset.cpp in Sources */,
+				4C1897F84AD74C659E7D3D83 /* features.cpp in Sources */,
+				05828DFC7A5C47398399904B /* properties.cpp in Sources */,
+				E3E3B3DF64A5469D981442F4 /* read_data.cpp in Sources */,
+				DE05230792C642419684A599 /* regression_tree.cpp in Sources */,
+				DE826CF3526841A9B9F3725D /* thread_rand.cpp in Sources */,
+				22277B0AE3F1478DAC5816A1 /* train_trees.cpp in Sources */,
+				C483904DB0954A3B9C534D59 /* training_samples.cpp in Sources */,
+				31820FFC102D4DEBB2C8C804 /* util.cpp in Sources */,
+				B0E9F6A58A9743E5BD44B369 /* ms.cpp in Sources */,
+				CB459A756B7141E7A1A1A883 /* msSys.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6BFB873D518B4AF2956E4B11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A80D06A6B23499AB5E5E513 /* ZERO_CHECK */;
+			targetProxy = 06B7E0B8DC5C4557B4D0A299 /* PBXContainerItemProxy */;
+		};
+		8C465A9172624111B0127210 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A80D06A6B23499AB5E5E513 /* ZERO_CHECK */;
+			targetProxy = 696F941E38514A288FDCF91B /* PBXContainerItemProxy */;
+		};
+		9E98C72F3ABE4DEBAE415873 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A80D06A6B23499AB5E5E513 /* ZERO_CHECK */;
+			targetProxy = B547B18897AF4BF49B9C891C /* PBXContainerItemProxy */;
+		};
+		C2366DE042564EA7BF6D4EC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F72D82BE9AF14470B6AFF766 /* test_pose_estimation */;
+			targetProxy = F340E1C744974C0896B6BC55 /* PBXContainerItemProxy */;
+		};
+		E080FDB749F44A1E88699A4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE7684FD7EA249D38C53884A /* train_trees */;
+			targetProxy = A9D61A43CC86431EA6E5AC97 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		01364FF53BD242AF8D3F7F8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/opencv/2.4.13.2/include/,
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/opt/local/include/libomp/,
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/local/lib /usr/local/Cellar/opencv/2.4.13.2/lib";
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/opencv/2.4.13.2/lib;
+				OTHER_CFLAGS = "-fopenmp";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-std=c++11",
+					"-fopenmp",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libpng.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_imgproc.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_core.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_highgui.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_calib3d.dylib,
+					/opt/local/lib/libomp/libomp.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = train_trees;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		0ADE1C5D8E134416977BF5D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/usr/local/include/opencv,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		12B62122E2FF47869A5DDC88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build/build;
+			};
+			name = Release;
+		};
+		1980AA0FEACF4798B309DD86 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/usr/local/include/opencv,
+					/opt/local/include/libomp/,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		2A56EDBDBB474864A4CB819E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/opencv/2.4.13.2/include/,
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					"/opt/local/include/libomp/**",
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/opt/local/lib/libomp/,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/,
+					/usr/local/lib,
+				);
+				NEW_SETTING = "";
+				OTHER_CFLAGS = "-fopenmp";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-fopenmp",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libpng.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_calib3d.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_highgui.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_core.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_imgproc.dylib,
+					/opt/local/lib/libomp/libomp.dylib,
+					/usr/local/lib/libnlopt.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_pose_estimation;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		6762FFEFF3D24D8E98C8933A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build/build;
+			};
+			name = Debug;
+		};
+		7313DF4AF8D64B6E8A378EA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/usr/local/include/opencv,
+					/opt/local/include/libomp/,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		867E4F4827E144C4BE868AD4 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/opencv/2.4.13.2/include/,
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/opt/local/include/libomp/,
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/local/lib /usr/local/Cellar/opencv/2.4.13.2/lib";
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/opencv/2.4.13.2/lib;
+				OTHER_CFLAGS = "-fopenmp";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-fopenmp",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libpng.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_imgproc.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_core.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_highgui.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_calib3d.dylib,
+					/opt/local/lib/libomp/libomp.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = train_trees;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		89166298808D4A5DB1D4B07F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/opencv/2.4.13.2/include/,
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/opt/local/include/libomp/,
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/local/lib /usr/local/Cellar/opencv/2.4.13.2/lib";
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/opencv/2.4.13.2/lib;
+				OTHER_CFLAGS = "-fopenmp";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-fopenmp",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libpng.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_imgproc.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_core.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_highgui.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_calib3d.dylib,
+					/opt/local/lib/libomp/libomp.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = train_trees;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		9BBD219FFB8D43F89A1476DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/opencv/2.4.13.2/include/,
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/opt/local/include/libomp/,
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/local/lib /usr/local/Cellar/opencv/2.4.13.2/lib";
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/opencv/2.4.13.2/lib;
+				OTHER_CFLAGS = "-fopenmp";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-fopenmp",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libpng.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_imgproc.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_core.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_highgui.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_calib3d.dylib,
+					/opt/local/lib/libomp/libomp.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = train_trees;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		9BF8997787C0482A8774D20D /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/usr/local/include/opencv,
+					/opt/local/include/libomp/,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		A94668D212BF401C8948A296 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build/build;
+			};
+			name = MinSizeRel;
+		};
+		A99C069C8A7B44D9BEF711AE /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/usr/local/include/opencv,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		BAE089A0A206470D81F672C2 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk;
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build/build;
+			};
+			name = RelWithDebInfo;
+		};
+		BE75ACFEE0994010933BE994 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/usr/local/include/opencv,
+					/opt/local/include/libomp/,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		E12E5835AD114910903E20E1 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/usr/local/include/opencv,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		E3E805D630264F5CB8B95830 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/opencv/2.4.13.2/include/,
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					"/opt/local/include/libomp/**",
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/opt/local/lib/libomp/,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/,
+					/usr/local/lib,
+				);
+				NEW_SETTING = "";
+				OTHER_CFLAGS = "-fopenmp";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-fopenmp",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libpng.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_calib3d.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_highgui.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_core.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_imgproc.dylib,
+					/opt/local/lib/libomp/libomp.dylib,
+					/usr/local/lib/libnlopt.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_pose_estimation;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		EB5E357D2BFC4733892327F8 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/opencv/2.4.13.2/include/,
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					"/opt/local/include/libomp/**",
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/opt/local/lib/libomp/,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/,
+					/usr/local/lib,
+				);
+				NEW_SETTING = "";
+				OTHER_CFLAGS = "-fopenmp";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-std=c++11",
+					"-fopenmp",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libpng.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_calib3d.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_highgui.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_core.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_imgproc.dylib,
+					/opt/local/lib/libomp/libomp.dylib,
+					/usr/local/lib/libnlopt.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_pose_estimation;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		F40CF6E4E9C242D39FF702C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /usr/local/opt/llvm/bin/clang;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/opencv/2.4.13.2/include/,
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					"/opt/local/include/libomp/**",
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/opt/local/lib/libomp/,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/,
+					/usr/local/lib,
+				);
+				NEW_SETTING = "";
+				OTHER_CFLAGS = "-fopenmp";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-std=c++11",
+					"-fopenmp",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libpng.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_calib3d.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_highgui.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_core.dylib,
+					/usr/local/Cellar/opencv/2.4.13.2/lib/libopencv_imgproc.dylib,
+					/opt/local/lib/libomp/libomp.dylib,
+					/usr/local/lib/libnlopt.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_pose_estimation;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		FEE468F487354BAB9BF8C86E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/../edison_source,
+					/usr/local/include,
+					/usr/local/include/opencv,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/apurvnigam/study_ucl/term1/MScThesis/code/autoContextRF/CVPR16/core/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2448E6C35DB34FE2901FFEF6 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEE468F487354BAB9BF8C86E /* Debug */,
+				0ADE1C5D8E134416977BF5D4 /* Release */,
+				E12E5835AD114910903E20E1 /* MinSizeRel */,
+				A99C069C8A7B44D9BEF711AE /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8561A8BF8365437CA7DE66BD /* Build configuration list for PBXNativeTarget "train_trees" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01364FF53BD242AF8D3F7F8E /* Debug */,
+				9BBD219FFB8D43F89A1476DD /* Release */,
+				89166298808D4A5DB1D4B07F /* MinSizeRel */,
+				867E4F4827E144C4BE868AD4 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9ADF48DA87F743BB8BD5B47D /* Build configuration list for PBXNativeTarget "test_pose_estimation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F40CF6E4E9C242D39FF702C5 /* Debug */,
+				2A56EDBDBB474864A4CB819E /* Release */,
+				EB5E357D2BFC4733892327F8 /* MinSizeRel */,
+				E3E805D630264F5CB8B95830 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D9E9784726B54204B44686A7 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7313DF4AF8D64B6E8A378EA3 /* Debug */,
+				BE75ACFEE0994010933BE994 /* Release */,
+				1980AA0FEACF4798B309DD86 /* MinSizeRel */,
+				9BF8997787C0482A8774D20D /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F6399E3C715D49C7B06AC2F2 /* Build configuration list for PBXProject "jointpose" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6762FFEFF3D24D8E98C8933A /* Debug */,
+				12B62122E2FF47869A5DDC88 /* Release */,
+				A94668D212BF401C8948A296 /* MinSizeRel */,
+				BAE089A0A206470D81F672C2 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FC8F153543CF400AB3E70A94 /* Project object */;
+}
