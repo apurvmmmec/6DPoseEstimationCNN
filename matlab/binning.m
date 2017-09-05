@@ -1,7 +1,7 @@
 close all;
 clear all;
 objId=5;
-binDim =2;
+binDim =5;
 
 %CAmera Intrinsic Param Matrix
 camMat = [572.41140   0          325.2611;
@@ -9,7 +9,7 @@ camMat = [572.41140   0          325.2611;
     0           0          1];
 cam = cameraParameters('IntrinsicMatrix', camMat')
 
-for n=0:2
+for n=0:0
     n
     camCordDisp=0;
     %Read Depth, Color and sgmentation mask
@@ -49,13 +49,13 @@ for n=0:2
     labels = generateLabels(binDim);
     %             [pc,colorMap] = reconstructScene(objId,n);
     
-    %100
-%     r= [ 0.89526898  0.37082601 -0.246943  ;
-%         -0.113724   -0.34570301 -0.931427  ;
-%         -0.43076599  0.86196202 -0.26732501];
-%     t=[ -100.50654196;
-%         89.42205556;
-%         1038.79488726]/1000;
+%     %100
+% %     r= [ 0.89526898  0.37082601 -0.246943  ;
+% %         -0.113724   -0.34570301 -0.931427  ;
+% %         -0.43076599  0.86196202 -0.26732501];
+% %     t=[ -100.50654196;
+% %         89.42205556;
+% %         1038.79488726]/1000;
     
     %0
     if(n==0)
@@ -169,6 +169,7 @@ for n=0:2
                     yc=(y-242.04899)*(double(d)/(1000*573.57043));
                     zc=double(d)/1000;
                     
+                    
                     camC=[xc;yc;zc;1];
                     xo = (camC);
                     if(camCordDisp==0)
@@ -221,6 +222,10 @@ for n=0:2
                         pc(ptIdx,2) = xo(2,1);
                         pc(ptIdx,3) = xo(3,1);
                         
+%                        colorMap(ptIdx,1) = color(y,x,1);
+%                         colorMap(ptIdx,2) = color(y,x,2);
+%                         colorMap(ptIdx,3) = color(y,x,3);
+                        
                         colorMap(ptIdx,1) = colors(l,1);
                         colorMap(ptIdx,2) = colors(l,2);
                         colorMap(ptIdx,3) = colors(l,3);
@@ -256,7 +261,7 @@ for n=0:2
     %     % % fclose('all');
     %     % %
     %
-%     orpc = pointCloud(pc,'Color',colorMap);
+    orpc = pointCloud(pc,'Color',colorMap);
     
     
     
@@ -279,12 +284,12 @@ for n=0:2
 %     [worldOrientation,worldLocation] = estimateWorldCameraPose(...
 %         bin2DCents,bin3DCents,cam)
     
-%     figure
-%     pcshow(orpc,'VerticalAxis','Y', 'VerticalAxisDir','Up');
-%     xlabel('X');
-%     ylabel('Y');
-%     zlabel('Z');
-    hold on
+    figure
+    pcshow(orpc,'VerticalAxis','Y', 'VerticalAxisDir','Up');
+    xlabel('X');
+    ylabel('Y');
+    zlabel('Z');
+%     hold on
     %
     
 %     bb3D = getBB3D(maxExtent);

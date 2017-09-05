@@ -245,8 +245,8 @@ def draw_color(shape, vertex_buffer, index_buffer, texture, mat_model, mat_view,
 
     # Keep the back-face culling disabled because of objects which do not have
     # well-defined surface (e.g. the lamp from the dataset of Hinterstoisser)
-    gl.glDisable(gl.GL_CULL_FACE)
-    # gl.glEnable(gl.GL_CULL_FACE)
+    # gl.glDisable(gl.GL_CULL_FACE)
+    gl.glEnable(gl.GL_CULL_FACE)
     # gl.glCullFace(gl.GL_BACK) # Back-facing polygons will be culled
 
     # Rendering
@@ -257,7 +257,7 @@ def draw_color(shape, vertex_buffer, index_buffer, texture, mat_model, mat_view,
     gl.glReadPixels(0, 0, shape[1], shape[0], gl.GL_RGBA, gl.GL_FLOAT, rgb)
     rgb.shape = shape[0], shape[1], 4
     rgb = rgb[::-1, :]
-    rgb = np.round(rgb[:, :, :3] * 255).astype(np.uint8) # Convert to [0, 255]
+    rgb = np.round(rgb[:, :, :4] * 255).astype(np.uint8) # Convert to [0, 255]
 
     fbo.deactivate()
 
@@ -345,6 +345,11 @@ def render(model, im_size, K, R, t, clip_near=100, clip_far=2000,
             vertices = np.array(zip(model['pts'], colors, texture_uv),
                                 vertices_type)
         else: # shading == 'phong'
+            # colors1= np.zeros([colors.shape[0],4])
+            # colors[:,0]=1.0;
+            # colors[:,1]=0.0
+            # colors[:,2]=0.0
+            # colors1[:,3]=0.0
             vertices_type = [('a_position', np.float32, 3),
                              ('a_normal', np.float32, 3),
                              ('a_color', np.float32, colors.shape[1]),
@@ -377,13 +382,13 @@ def render(model, im_size, K, R, t, clip_near=100, clip_far=2000,
     index_buffer = model['faces'].flatten().astype(np.uint32).view(gloo.IndexBuffer)
 
     # Create window
-    # config = app.configuration.Configuration()
+    config = app.configuration.Configuration()
     # Number of samples used around the current pixel for multisample
     # anti-aliasing (max is 8)
-    # config.samples = 8
-    # config.profile = "core"
-    # window = app.Window(config=config, visible=False)
-    window = app.Window(visible=False)
+    config.samples = 8
+    config.profile = "core"
+    window = app.Window(config=config, visible=False)
+    # window = app.Window(visible=False)
 
     global rgb, depth
     rgb = None

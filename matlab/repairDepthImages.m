@@ -1,15 +1,15 @@
 close all
 clear all
 
-objId=5
+objId=4
 h=480
 w=640
-for n=0:1195
+for n=0:1200
     n
     %Read Depth, Color and sgmentation mask
     dImgPath = sprintf('/Users/apurvnigam/study_ucl/term1/MScThesis/hinterstoisser/test/%02d/depth/%04d.png',objId,n);
     segImgPath = sprintf('/Users/apurvnigam/study_ucl/term1/MScThesis/hinterstoisser/test/%02d/seg/%04d.png',objId,n);
-    correctedDepthPath = sprintf('/Users/apurvnigam/study_ucl/term1/MScThesis/hinterstoisser/test/%02d/correctedDepth/%04d.png',objId,n);
+    correctedDepthPath = sprintf('/Users/apurvnigam/study_ucl/term1/MScThesis/hinterstoisser/test/%02d/depth/%04d.png',objId,n);
 
     depth=imread(dImgPath);
     seg=imread(segImgPath);

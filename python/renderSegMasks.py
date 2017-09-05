@@ -53,14 +53,15 @@ def createMask(x):
     [r, t] = getRotTrans(gt_info, im_id, objId)
 
     objDepImg = renderer.render(models[objId - 1], (w, h), cam_mat, r, t, shading='phong', mode='depth')
+    time.sleep(1)
     g1 = 0  # Original value
     g2 = 100000  # Value that we want to replace it with
 
     gray = objDepImg[:, :]
     mask = (gray == g1)
     objDepImg[:, :][mask] = [g2]
+    oid = list(map(lambda x: 0. if x == 100000. else 0 if objId!=5  else 255, objDepImg.flatten()))
 
-    oid = list(map(lambda x: 0. if x == 100000. else objId, objDepImg.flatten()))
     return zip(objDepImg.flatten(), oid)
 
 
@@ -83,8 +84,10 @@ for im_id in range(0,numImages):
     depthMask = np.ones([480,640])*100000;
 
     gt_info_im = gt_info[im_id]
+    numObjs = len(gt_info_im)
 
-    objList = [0,2,3,5]
+    objList = np.arange(0,numObjs)
+    print objList
 
 
 

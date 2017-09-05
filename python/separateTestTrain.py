@@ -17,7 +17,7 @@ info_in_path = base_path + 'test/{:02d}/info/info_{:05d}.txt'
 
 
 numTotal=   1195
-objId = 5
+objId = 4
 
 
 def genTrainTestFiles():
@@ -39,7 +39,7 @@ def genTrainTestFiles():
 
 
 def separateTrainTestImages():
-    trainScenesFile = open(trainScenes_file_path.format(objId), 'r')
+    # trainScenesFile = open(trainScenes_file_path.format(objId), 'r')
     testScenesFile = open(testScenes_file_path.format(objId), 'r')
 
     # for line in trainScenesFile.readlines():
@@ -58,12 +58,12 @@ def separateTrainTestImages():
         print line
         # print 'cp '+ rgb_in_mpath.format(objId,int(line))+ base_path+'test/%02d/training/rgb/'%(objId)
 
-        # os.system('cp '+ rgb_in_mpath.format(objId,int(line))+' '+ base_path+'test/%02d/test/rgb/'%(objId))
-        # os.system('cp '+ depth_in_mpath.format(objId,int(line))+' '+ base_path+'test/%02d/test/depth/'%(objId))
-        #
-        # # os.system('cp '+ seg_in_path.format(objId,int(line))+' '+ base_path+'test/%02d/training/seg/'%(objId))
-        # os.system('cp '+ labelled_output_mpath.format(objId,int(line))+' '+ base_path+'test/%02d/test/labelled/'%(objId))
+        # os.system('cp '+ rgb_in_mpath.format(objId,int(line))+' '+ base_path+'test/%02d/test/rgb_noseg/'%(objId))
+        # os.system('cp '+ depth_in_mpath.format(objId,int(line))+' '+ base_path+'test/%02d/test/depth_noseg/'%(objId))
+        # os.system('cp '+ seg_in_path.format(objId,int(line))+' '+ base_path+'test/%02d/training/seg/'%(objId))
+        # os.system('cp '+ labelled_output_mpath.format(objId,int(line))+' '+ base_path+'test/%02d/test/objLabels/'%(objId))
         os.system('cp '+ info_in_path.format(objId,int(line))+' '+ base_path+'test/%02d/test/info/'%(objId))
+        print(    'cp '+ info_in_path.format(objId,int(line))+' '+ base_path+'test/%02d/test/info/'%(objId))
 
 
 separateTrainTestImages()

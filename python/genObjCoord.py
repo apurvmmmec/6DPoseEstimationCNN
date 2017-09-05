@@ -57,19 +57,19 @@ colorPalette = getColors(bin_dim=bin_dim);
 labels = getLabels(bin_dim);
 # print labels
 
-scene_id = 6;  # benchviseblue
-# objId = 5 #Can
-objId = 6  # Cat
+scene_id = objId= 4;
 
 with open(scene_gt_mpath.format(scene_id), 'r') as f:
     gts = yaml.load(f, Loader=yaml.CLoader)
 
+# maxExtent = np.array([0.21567000000, 0.12185570000, 0.21941000000]).reshape([3, 1]); #Benchvise
+maxExtent = np.array([0.13665940000, 0.14303020000, 0.10049700000]).reshape([3, 1]); #Camera
 
 # maxExtent = np.array([0.100792,0.181796,0.193734]).reshape([3, 1]); #Can
 # maxExtent = np.array([0.104429, 0.0774076 ,0.0856969]).reshape([3, 1]); #Duck
-# maxExtent = np.array([0.11848210000,0.14113240000,0.25822600000]).reshape([3,1]) #Iron
+# maxExtent = np.array([0.25822600000, 0.11848210000,0.14113240000]).reshape([3,1]) #Iron
 # maxExtent=np.array([0.0758686,0.0775993,0.0917691 ]).reshape([3,1]) #ape
-maxExtent=np.array([0.06701070000, 0.12763300000, 0.11745660000]).reshape([3,1]) #cat
+# maxExtent=np.array([0.06701070000, 0.12763300000, 0.11745660000]).reshape([3,1]) #cat
 
 
 bb3D = getBB3D(maxExtent)
@@ -87,7 +87,9 @@ unitX = (maxX - minX) / bin_dim;
 unitY = (maxY - minY) / bin_dim;
 unitZ = (maxZ - minZ) / bin_dim;
 
-for im_id in range(0,1179):
+numImages = len(gts)
+
+for im_id in range(0,numImages):
     print im_id
     objLabel = np.zeros([h, w, 3],dtype=np.uint8)
     labelImg = np.zeros([h,w],dtype=np.uint8)

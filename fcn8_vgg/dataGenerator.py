@@ -112,7 +112,7 @@ class ImageDataGenerator(object):
         labelclasses = np.array([])
         # if self.args.dataset == 'mit':
         labelclasses = np.arange(2)
-        labelclasses = np.append(labelclasses, [255])
+        labelclasses = np.append(labelclasses, [0])
         return labelclasses
 
     def saveImage(self,outDir,outputImages, filenames):
@@ -136,8 +136,8 @@ class ImageDataGenerator(object):
             return base
         for i in range (0,numImages):
 
-            imgchannels = list(map(map_channels, enumerate(np.transpose(outputImages[i, :, :, :], [2, 0, 1]))))
-            smashed = smash_channels(imgchannels)
+            # imgchannels = list(map(map_channels, enumerate(np.transpose(outputImages[i, :, :, :], [2, 0, 1]))))
+            # smashed = smash_channels(imgchannels)
 
             print (outDir+'segout'+filenames[i][-8:])
-            io.imsave(outDir+'segout'+filenames[i][-8:], smashed*255)
+            io.imsave(outDir+'segout'+filenames[i][-8:], (outputImages[i,:,:,1]*255).astype(np.uint8))

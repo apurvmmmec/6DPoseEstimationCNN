@@ -2,19 +2,23 @@ import numpy as np
 
 
 def getRotTrans(gt_info,im_id,objId):
-
+    found=False
     # for im_id, gts_im in gts.items():
     gts_im = gt_info[im_id]
     for gt in gts_im:
         if 'obj_id' in gt.keys():
             if (gt['obj_id'] ==objId):
-
+                found=True
                 if 'cam_R_m2c' in gt.keys():
                     gt['cam_R_m2c'] = np.array(gt['cam_R_m2c']).reshape((3, 3))
                     r= gt['cam_R_m2c']
+
                 if 'cam_t_m2c' in gt.keys():
                     gt['cam_t_m2c'] = np.array(gt['cam_t_m2c']).reshape((3, 1))
                     t= gt['cam_t_m2c']
+    if(found==False):
+        r = np.zeros([3, 3])
+        t = np.zeros(3).reshape([3, 1])
 
     return r,t
 

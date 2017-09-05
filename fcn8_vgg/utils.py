@@ -258,4 +258,4 @@ def copyTestImages():
         outfile.write(base_path+'images/can/images/test/%04d.png\n'%(i))
 
 
-copyTestImages()
+# copyTestImages()

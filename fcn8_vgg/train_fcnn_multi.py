@@ -17,28 +17,12 @@ import loss as cost
 from dataGenerator import ImageDataGenerator
 from inputLoader import *
 
-
-
-base_path = '../../fcn8_vgg_data'
-DATA_DIR = base_path+'/images/'
-IMG_OUT_DIR = base_path+'/outputImages/'
-IMG_IN_DIR = base_path+'/data/'
-LOG_DIR = base_path+'/logs/'
-MODEL = base_path+'/model_canSeg/'
-MODEL_NAME = 'fcn8_vgg'
-DATASET = 'duck'
-PRETRAIN_MODEL = base_path+'/pretrained/vgg16.npy'
 FLAGS = tf.app.flags.FLAGS
 
-tf.app.flags.DEFINE_string('logDir', base_path+'/logs',
-                           """Directory where to write event logs """
-                           """and checkpoint.""")
-tf.app.flags.DEFINE_string('checkpointPath', base_path+'/model_can',
-                           """Directory where to write event logs """
-                           """and checkpoint.""")
+
 tf.app.flags.DEFINE_integer('max_steps', 1000000,
                             """Number of batches to run.""")
-tf.app.flags.DEFINE_integer('num_gpus', 1,
+tf.app.flags.DEFINE_integer('num_gpus', 2,
                             """How many GPUs to use.""")
 tf.app.flags.DEFINE_boolean('log_device_placement', False,
                              """Whether to log device placement.""")
@@ -55,15 +39,23 @@ NUMBER_CHANNELS = 3
 
 LEARNING_RATE = 1e-6
 EPOCHS = 10000
-BATCH_SIZE = 4
+BATCH_SIZE = 1
 DISPLAY_STEP = 10
 SAVE_STEP = 1000
 EVALUATE_STE = 100
 
+DATA_DIR = '../../fcn8_vgg_data/images/'
+IMG_OUT_DIR = '../../fcn8_vgg_data/outputImages_05_02/'
+IMG_IN_DIR = '../../fcn8_vgg_data/data/'
+LOG_DIR = './logs_can/'
+MODEL = '../../fcn8_vgg_data/model_canSynSeg/'
+MODEL_NAME = 'fcn8_vgg'
+DATASET = 'can'
+PRETRAIN_MODEL = '../../fcn8_vgg_data/pretrained/vgg16.npy'
 GPU = '0,1'
 
 NUMBER_CLASSES = 2
-IGNORE_LABEL = 0
+IGNORE_LABEL = 255
 KEEP_PROB = 0.5
 TOWER_NAME = 'tower'
 
@@ -122,7 +114,7 @@ def parseArguments():
                         default=PRETRAIN_MODEL, help="Path to the pretrained model to load weights")
     parser.add_argument("--images-out-dir", action="store", dest="imagesOutDir",
                         default=IMG_OUT_DIR, help="Directory for saving output images")
-    parser.add_argument("--log-dir", action="store", dest="logsDir", default=LOG_DIR,
+    parser.add_argument("--log-dir", action="store", dest="logDir", default=LOG_DIR,
                         help="Directory for saving logs")
     parser.add_argument("--model-dir", action="store", dest="modelDir", default=MODEL,
                         help="Directory for saving the model")
@@ -137,10 +129,11 @@ def parseArguments():
                         help="Probability of keeping a neuron active during training")
 
     return parser.parse_args()
+
 def tower_loss(scope, images, labels):
 
   labelclasses = np.arange(2)
-  labelclasses = np.append(labelclasses, [255])
+  labelclasses = np.append(labelclasses, [0])
   upscore32_pred = fcn8.inference(rgb=images)
 
   _ = cost.loss(upscore32_pred, labels, labelclasses)
@@ -163,18 +156,6 @@ def tower_loss(scope, images, labels):
 
 
 def average_gradients(tower_grads):
-  """Calculate the average gradient for each shared variable across all towers.
-
-  Note that this function provides a synchronization point across all towers.
-
-  Args:
-    tower_grads: List of lists of (gradient, variable) tuples. The outer list
-      is over individual gradients. The inner list is over the gradient
-      calculation for each tower.
-  Returns:
-     List of pairs of (gradient, variable) where the gradient has been averaged
-     across all towers.
-  """
   average_grads = []
   for grad_and_vars in zip(*tower_grads):
     # Note that each grad_and_vars looks like the following:
@@ -191,9 +172,6 @@ def average_gradients(tower_grads):
     grad = tf.concat(axis=0, values=grads)
     grad = tf.reduce_mean(grad, 0)
 
-    # Keep in mind that the Variables are redundant because they are shared
-    # across towers. So .. we will just return the first tower's pointer to
-    # the Variable.
     v = grad_and_vars[0][1]
     grad_and_var = (grad, v)
     average_grads.append(grad_and_var)
@@ -222,9 +200,9 @@ def train(args):
                                       args.numClasses,
                                       'training',
                                       args.batchSize,
-                                      num_preprocess_threads=8,
+                                      num_preprocess_threads=2,
                                       shuffle=True,
-                                      min_queue_examples=1000)
+                                      min_queue_examples=10)
 
     images = trainDataGen.img_batch
     labels = trainDataGen.label_batch
@@ -302,7 +280,7 @@ def train(args):
     # Start the queue runners.
     tf.train.start_queue_runners(sess=sess)
 
-    summary_writer = tf.summary.FileWriter(FLAGS.logDir, sess.graph)
+    summary_writer = tf.summary.FileWriter(args.logDir, sess.graph)
 
     for step in xrange(FLAGS.max_steps):
       start_time = time.time()
@@ -311,7 +289,7 @@ def train(args):
 
       assert not np.isnan(loss_value), 'Model diverged with loss = NaN'
 
-      if step % 10 == 0:
+      if step % 1 == 0:
         num_examples_per_step = args.batchSize * FLAGS.num_gpus
         examples_per_sec = num_examples_per_step / duration
         sec_per_batch = duration / FLAGS.num_gpus
@@ -321,13 +299,13 @@ def train(args):
         print (format_str % (datetime.now(), step, loss_value,
                              examples_per_sec, sec_per_batch))
 
-      if step % 100 == 0:
+      if step % 10 == 0:
         summary_str = sess.run(summary_op)
         summary_writer.add_summary(summary_str, step)
 
       # Save the model checkpoint periodically.
       if step % 1000 == 0 or (step + 1) == FLAGS.max_steps:
-        checkpoint_path = os.path.join(FLAGS.checkpointPath, 'model.ckpt')
+        checkpoint_path = os.path.join(args.modelDir, 'model.ckpt')
         saver.save(sess, checkpoint_path, global_step=step)
 
 
@@ -335,27 +313,24 @@ def train(args):
 def testModel(args):
     print("Testing saved model")
 
-    # os.system("rm -rf " + args.imagesOutDir)
-    # os.system("mkdir " + args.imagesOutDir)
     test_file_name = args.imagesInDir + 'test.txt'
-    print (test_file_name)
+    print(test_file_name)
 
     print("Testing saved model")
 
     testDataGen = ImageDataGenerator(args, test_file_name,
-                                      args.numClasses,
-                                      'test',
-                                      4,
-                                      num_preprocess_threads=1,
-                                      shuffle=True,
-                                      min_queue_examples=1)
+                                     args.numClasses,
+                                     'test',
+                                     1,
+                                     num_preprocess_threads=1,
+                                     shuffle=True,
+                                     min_queue_examples=1)
 
     rgbImgBatch = testDataGen.img_batch
-    labelBatch =  testDataGen.label_batch
+    labelBatch = testDataGen.label_batch
 
     fcn8.inference(rgb=rgbImgBatch)
 
-    # SAVER
     train_saver = tf.train.Saver()
 
     merged_summary = tf.summary.merge_all()
@@ -368,15 +343,15 @@ def testModel(args):
     coordinator = tf.train.Coordinator()
     threads = tf.train.start_queue_runners(sess=sess, coord=coordinator)
 
-    train_saver = tf.train.import_meta_graph(args.modelDir + 'model.ckpt-51000' + ".meta")
-    train_saver.restore(sess, args.modelDir + 'model.ckpt-51000')
+    train_saver = tf.train.import_meta_graph(args.modelDir + 'model.ckpt-55000' + ".meta")
+    train_saver.restore(sess, args.modelDir + 'model.ckpt-55000')
 
     print('now testing {} files')
     tf.get_variable_scope().reuse_variables()
 
     epsilon = tf.constant(value=1e-4)
 
-    for i in range(1,20):
+    for i in range(1, 2):
         upscore32_pred = fcn8.inference(rgb=rgbImgBatch)
         inputShape = rgbImgBatch.get_shape().as_list()
         inputShape[0] = -1  # self.batchSize # Images in batch
@@ -385,28 +360,26 @@ def testModel(args):
         softmax = tf.nn.softmax(logits + epsilon)
         probabilities = tf.reshape(softmax, inputShape, name='probabilities')
 
-        probabilities,labels = sess.run([probabilities,labelBatch])
+        probabilities, labels = sess.run([probabilities, labelBatch])
         # labels = sess.run(labelBatch)
-        testDataGen.saveImage(args.imagesOutDir,probabilities,labels );
+        testDataGen.saveImage(args.imagesOutDir, probabilities, labels);
 
         print('done calculating prb')
 
     print("Model tested!")
-    summary_writer = tf.summary.FileWriter(FLAGS.logDir, sess.graph)
+    summary_writer = tf.summary.FileWriter(args.logDir, sess.graph)
     summary_str = sess.run(merged_summary)
     summary_writer.add_summary(summary_str, 0)
 
 
 def main(argv=None):  # pylint: disable=unused-argument
-
-  os.system("rm -rf " + FLAGS.logDir)
-  os.system("mkdir " + FLAGS.logDir)
-
-  args = parseArguments()
-  il = InputLoader(args)
-  testModel(args)
-  # train(args)
-
+    # os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+    # os.system("rm -rf " + FLAGS.logDir)
+    # os.system("mkdir " + FLAGS.logDir)
+    args = parseArguments()
+    il = InputLoader(args)
+    testModel(args)
+    # train(args)
 
 if __name__ == '__main__':
   tf.app.run()
